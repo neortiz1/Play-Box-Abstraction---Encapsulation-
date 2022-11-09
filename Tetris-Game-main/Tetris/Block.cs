@@ -7,60 +7,57 @@ namespace Tetris
         //Como base del experimento se debe crear una clase abstracta y luego crear una subclase.
         //Esto no permitará más adelante crear unas subclases reutilizando los mismos metodos de la clase abstracta (Para los 7 bloques diferentes). 
         //Una matriz de posici{on bidimensional que contiene las pocisiones de los bloques en los cuatro estados.
-        protected abstract Position[][] Tiles { get; }
+        //line1
+        protected abstract 
         //Desplazamiento de inicio que decide donde el bloque se genera en la cuadrícula
-        protected abstract Position StartOffset { get; }
+        //line2
+        protected abstract 
         //Identificar de n{umero entero para distinguir los bloques
-        public abstract int Id { get; }
+        //line3
+        public abstract 
         //Se debe almacenar la rotación actual y el desplazamiento. 
-        private int rotationState;
-        private Position offset;
+        //line4
+        private 
+        private 
 
         //En el constructor se establece al desplazamiento como desplazamiento inicial
+        //line5
         public Block()
         {
-            offset = new Position(StartOffset.Row, StartOffset.Column);
+
         }
         //Método que retorne las posiones de la cuadrícula ocupadas por el bloque.
         //Teniendo en cuando la rotación actual y el desplazamiento. 
         //Recorre las posiciones de los bloques en el estado de rotación actual y agrega el desplazamiento de fila y columna
+        //line6
         public IEnumerable<Position> TilePositions()
         {
-            foreach (Position p in Tiles[rotationState])
-            {
-                yield return new Position(p.Row + offset.Row, p.Column + offset.Column);
-            }
+
         }
         //Método gira el bloque en 90 grados sentido del reloj. 
+        //line7
         public void RotateCW()
         {
-            rotationState = (rotationState + 1) % Tiles.Length;
+
         }
 
         //Método para rotar en sentido contrario del reloj. 
+        //line8
         public void RotateCCW()
         {
-            if (rotationState == 0)
-            {
-                rotationState = Tiles.Length - 1;
-            }
-            else
-            {
-                rotationState--;
-            }
+
         }
         //Método para mover por un número de filas y columnas
+        //line9
         public void Move(int rows, int columns)
         {
-            offset.Row += rows;
-            offset.Column += columns;
+
         }
         //Método de reinicio que restablece la rotación y posición
+        //line10
         public void Reset()
         {
-            rotationState = 0;
-            offset.Row = StartOffset.Row;
-            offset.Column = StartOffset.Column;
+
         }
     }
 }
