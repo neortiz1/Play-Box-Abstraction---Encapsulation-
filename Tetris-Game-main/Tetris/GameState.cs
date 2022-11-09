@@ -26,12 +26,13 @@
             }
         }
         //Propiedades de cuadrícula, la cola de bloques y un estado para terminar el juego
-        public GameGrid GameGrid { get; }
-        public BlockQueue BlockQueue { get; }
-        public bool GameOver { get; private set; }
-        public int Score { get; private set; }
-        public Block HeldBlock { get; private set; }
-        public bool CanHold { get; private set; }
+        //line1
+        public 
+        public 
+        public 
+        public 
+        public 
+        public 
         //En el constructor se inicializa la cuadrícula del juego con 22 filas y 10 columnas
         //Se inicializa la cola de bloques y se utiliza para obtener bloques aleatorios con la propiedad de bloque actual
         public GameState()
